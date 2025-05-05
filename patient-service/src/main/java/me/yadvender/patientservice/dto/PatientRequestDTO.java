@@ -3,6 +3,7 @@ package me.yadvender.patientservice.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import me.yadvender.patientservice.dto.validators.CreatePatientValidationGroup;
 
 public class PatientRequestDTO {
     @NotBlank(message = "Name cannot be blank")
@@ -19,7 +20,7 @@ public class PatientRequestDTO {
     @NotBlank(message = "DOB cannot be blank")
     private String dateOfBirth;
 
-    @NotBlank(message = "Registered date cannot be blank")
+    @NotBlank(groups = CreatePatientValidationGroup.class, message = "Registered date cannot be blank")
     private String registeredDate;
 
     public String getName() {
